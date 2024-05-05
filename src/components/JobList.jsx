@@ -55,12 +55,12 @@ const JobList = () => {
         <div>
             <h2>Job Listings</h2>
             <div>
-                {filteredJobs.map(job => (
-                    <div key={job.id}>
-                        <h3>{job.title}</h3>
-                        <p>{job.company}</p>
+                {jobs.map(job => (
+                    <div key={job.jdUid}>
+                        <h3>{job.jobRole}</h3>
+                        <p>{job.companyName}</p>
                         <p>{job.location}</p>
-                        <p>{job.description}</p>
+                        <p>{job.jobDetailsFromCompany}</p>
                         <button>Apply</button>
                     </div>
                 ))}
