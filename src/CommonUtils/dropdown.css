@@ -8,6 +8,7 @@
     padding: 8px 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    opacity: 0.7;
 }
 
 .dropdown-options {
@@ -20,8 +21,9 @@
     border: 1px solid #ccc;
     border-top: none;
     border-radius: 0 0 4px 4px;
-    background-color: black;
-    color: #ccc;
+    background-color: grey;
+    color: black;
+    z-index: 2;
 }
 
 .option {

@@ -1,0 +1,21 @@
+export const roleOptions = [
+    { label: 'IOS', value: 'ios' },
+    { label: 'Android', value: 'android' },
+    { label: 'Tech Lead', value: 'tech_lead' },
+    { label: 'Frontend', value: 'frontend' },
+    { label: 'Backend', value: 'backend' },
+    { label: 'Fullstack', value: 'fullstack' },
+    { label: 'Flutter', value: 'flutter' },
+    { label: 'React Native', value: 'react_native' },
+    { label: 'Data Science', value: 'data_science' },
+    { label: 'Data Engineer', value: 'data_engineer' },
+    { label: 'Designer', value: 'designer' },
+    { label: 'Design Manager', value: 'design_manager' },
+    { label: 'Sales', value: 'sales' },
+    { label: 'Digital Marketing', value: 'digital_marketing' },
+    { label: 'Content Creator', value: 'content_creator' },
+    { label: 'Data Analyst', value: 'data_analyst' },
+    { label: 'HR', value: 'hr' },
+    { label: 'Finance', value: 'finance' },
+    { label: 'Web 3', value: 'web_3' }
+];

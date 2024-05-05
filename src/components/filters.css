@@ -5,6 +5,8 @@
     margin: 20px;
 }
 
-.company-name-container {
-    margin-top: 20px;
+.company-name-container input {
+    padding: 11px 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
