@@ -14,7 +14,7 @@ const reducer = (state = initialState, action) => {
             console.log(action)
             return {
                 ...state,
-                jobs: [...state.jobs, ...action.payload],
+                jobs: [...state.jobs, ...action?.payload],
                 loading: false,
                 error: null,
             };

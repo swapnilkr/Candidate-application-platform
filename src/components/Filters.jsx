@@ -17,14 +17,6 @@ const Filters = () => {
         setOpenDropdown(openDropdown === dropdownName ? '' : dropdownName);
     };
 
-
-
-
-
-
-
-
-
     const handleRoleChange = (value) => {
         dispatch({ type: 'APPLY_FILTERS', payload: { role: value } });
     };

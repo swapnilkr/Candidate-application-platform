@@ -40,7 +40,7 @@ const JobCard = ({ job, index }) => {
                 {(job.minJdSalary || job.maxJdSalary) &&
                     <p className='card-salary'>
                         Estimated Salary: ₹{job.minJdSalary}{job.minJdSalary && job.maxJdSalary && " - "}{job.maxJdSalary} LPA
-                        <span aria-label="Offered salary range" class=""> ✅</span>
+                        <span aria-label="Offered salary range"> ✅</span>
                     </p>
                 }
                 {job.jobDetailsFromCompany && (
