@@ -10,31 +10,49 @@ const JobList = () => {
     const filteredJobs = useSelector(state => state.filteredJobs);
 
     const [offset, setOffset] = useState(0);
+    const [loading, setLoading] = useState(false);
 
     const loadMoreJobs = async () => {
         try {
-            const data = await fetchJobs(9, offset + 1);
-            dispatch({ type: 'FETCH_JOBS_SUCCESS', payload: data.jobs });
+            setLoading(true);
+            const data = await fetchJobs(9, offset);
+            dispatch({ type: 'FETCH_JOBS_SUCCESS', payload: data?.jdList });
             setOffset(prevOffset => prevOffset + 1);
+            setLoading(false);
         } catch (error) {
             console.error(error);
+            setLoading(false);
         }
     };
 
     const loadMoreTrigger = useRef(null);
 
     useEffect(() => {
-        async function fetchData() {
-            try {
-                const data = await fetchJobs(9, offset);
-                dispatch({ type: 'FETCH_JOBS_SUCCESS', payload: data?.jdList });
-                setOffset(prevOffset => prevOffset + 1);
-            } catch (error) {
-                console.error(error);
-            }
+        const observer = new IntersectionObserver(
+            async (entries) => {
+                if (entries[0].isIntersecting) {
+                    try {
+                        loadMoreJobs()
+                    } catch (error) {
+                        console.error(error);
+                    } finally {
+                        setLoading(false);
+                    }
+                }
+            },
+            { threshold: 0.1 }
+        );
+
+        if (loadMoreTrigger.current) {
+            observer.observe(loadMoreTrigger.current);
         }
-        fetchData();
-    }, []);
+
+        return () => {
+            if (loadMoreTrigger.current) {
+                observer.unobserve(loadMoreTrigger.current);
+            }
+        };
+    }, [loading, offset]);
 
     return (
         <div>
@@ -49,6 +67,7 @@ const JobList = () => {
                     ))
                 )}
             </div>
+            <div ref={loadMoreTrigger} style={{visibility:"hidden"}}>Loading</div>
         </div>
     );
 };
