@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import fetchJobs from '../services/api';
+import JobCard from './JobCard';
 
 const JobList = () => {
     console.log("Qswap1")
@@ -54,18 +55,8 @@ const JobList = () => {
     return (
         <div>
             <h2>Job Listings</h2>
-            <div>
-                {jobs.map(job => (
-                    <div key={job.jdUid}>
-                        <h3>{job.jobRole}</h3>
-                        <p>{job.companyName}</p>
-                        <p>{job.location}</p>
-                        <p>{job.jobDetailsFromCompany}</p>
-                        <button>Apply</button>
-                    </div>
-                ))}
+                <JobCard jobs={jobs} />
                 {loading && <p>Loading...</p>}
-            </div>
         </div>
     );
 };

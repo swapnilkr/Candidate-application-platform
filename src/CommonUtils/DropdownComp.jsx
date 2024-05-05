@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DropdownFilter = ({ label, options, onChange }) => {
+const DropdownComp = ({ label, options, onChange }) => {
     return (
         <div>
             <label>{label}</label>
@@ -16,4 +16,4 @@ const DropdownFilter = ({ label, options, onChange }) => {
     );
 };
 
-export default DropdownFilter;
+export default DropdownComp;
