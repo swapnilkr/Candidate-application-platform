@@ -1,12 +1,11 @@
-// src/components/JobList.js
-
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import fetchJobs from '../services/api';
 import JobCard from './JobCard';
+import './jobList.css'
 
 const JobList = () => {
-    console.log("Qswap1")
+
     const dispatch = useDispatch();
     const jobs = useSelector(state => state.jobs);
     const filteredJobs = useSelector(state => state.filteredJobs);
@@ -17,10 +16,11 @@ const JobList = () => {
     const loadMoreJobs = async () => {
         setLoading(true);
         try {
-            console.log("qswap")
+
             const data = await fetchJobs(10, offset);
             dispatch({ type: 'FETCH_JOBS_SUCCESS', payload: data.jobs });
             setOffset(prevOffset => prevOffset + 10);
+
         } catch (error) {
             console.error(error);
         }
@@ -55,8 +55,12 @@ const JobList = () => {
     return (
         <div>
             <h2>Job Listings</h2>
-                <JobCard jobs={jobs} />
-                {loading && <p>Loading...</p>}
+            <div className='job-card-container'>
+                {jobs.map((job, index) => (
+                    <JobCard job={job} index={index} />
+                ))}
+            </div>
+            {loading && <p>Loading...</p>}
         </div>
     );
 };

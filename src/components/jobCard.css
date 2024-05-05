@@ -1,0 +1,65 @@
+.job-card {
+    width: calc(33.33% - 20px);
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 1.5rem;
+    height: fit-content;
+}
+
+.job-card p {
+    margin: 0px;
+}
+
+.job-info-container p {
+    text-transform: capitalize;
+}
+
+.job-logo,
+.job-logo img {
+    width: 25px;
+    height: 2.5rem;
+}
+
+@media (max-width: 768px) {
+    .job-card {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .job-card {
+        width: calc(100% - 20px);
+    }
+}
+
+
+
+.full-description {
+    max-height: 250px;
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255), rgba(255, 255, 255, 0));
+    ;
+}
+
+
+.view-more,
+.view-less {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    position: relative;
+    top: -20px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgb(0, 0, 170);
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.view-less {
+    top: 0px !important;
+}
