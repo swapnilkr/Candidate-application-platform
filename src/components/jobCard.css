@@ -8,6 +8,11 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 1.5rem;
     height: fit-content;
+    transition: transform 0.3s ease;
+}
+
+.job-card:hover {
+    transform: translateY(-5px) scale(1.05);
 }
 
 .job-card p {
@@ -16,6 +21,29 @@
 
 .job-info-container p {
     text-transform: capitalize;
+    font-size: 11px;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+.job-info-container>h3,
+.experience-blog h3 {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+    color: #8b8b8b;
+    text-transform: capitalize;
+    margin: 0px;
+}
+
+.job-info-container>h2,
+.experience-blog h2 {
+    font-size: 14px;
+    line-height: 1.5;
+    text-transform: capitalize;
+    font-weight: 400;
+    margin: 0px;
 }
 
 .job-logo,
@@ -24,26 +52,14 @@
     height: 2.5rem;
 }
 
-@media (max-width: 768px) {
-    .job-card {
-        width: calc(50% - 20px);
-    }
-}
-
-@media (max-width: 480px) {
-    .job-card {
-        width: calc(100% - 20px);
-    }
-}
-
-
-
 .full-description {
     max-height: 250px;
     overflow: hidden;
     position: relative;
     mask-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255), rgba(255, 255, 255, 0));
-    ;
+    font-weight: 400;
+    white-space: pre-wrap;
+    font-size: 14px;
 }
 
 
@@ -62,4 +78,64 @@
 
 .view-less {
     top: 0px !important;
+}
+
+.job-apply-btn {
+    width: 100%;
+    background-color: rgb(85, 239, 196);
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: 8px;
+    margin: 5px 0;
+    text-transform: none;
+    border: none;
+    cursor: pointer;
+}
+
+.job-card-about-company {
+    margin: 0px;
+    font-family: __LexendFont_7838d2, __LexendFont_Fallback_7838d2;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.job-card-about-us {
+    white-space: pre-wrap;
+    font-size: 14px;
+    line-height: 1.5;
+    font-family: __LexendFont_7838d2, __LexendFont_Fallback_7838d2;
+    font-weight: 700;
+}
+
+.card-salary {
+    height: 1.43rem;
+    margin-bottom: 8px !important;
+    font-weight: 400;
+    font-size: 14px !important;
+    color: rgb(77, 89, 106);
+    font-family: __LexendFont_7838d2, __LexendFont_Fallback_7838d2;
+    line-height: 1.43;
+}
+
+
+@media (max-width: 768px) {
+    .job-card {
+        width: calc(50% - 20px);
+    }
+
+    .card-salary {
+        height: 1.43rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .job-card {
+        width: calc(100% - 20px) !important;
+    }
+
+    .card-salary {
+        height: 2.86rem;
+    }
 }

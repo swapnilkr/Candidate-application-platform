@@ -30,43 +30,58 @@ const JobCard = ({ job, index }) => {
                     {!imageLoaded && <Shimmer />}
                 </div>
                 <div className='job-info-container'>
-                    {job.companyName && <p>{job.companyName}</p>}
-                    {job.jobRole && <p>{job.jobRole}</p>}
+                    {job.companyName && <h3>{job.companyName}</h3>}
+                    {job.jobRole && <h2>{job.jobRole}</h2>}
                     {job.location && <p>{job.location}</p>}
                 </div>
             </div>
 
-            <div style={{ marginTop: "0.5rem" }}>
+            <div style={{ marginTop: "8px" }}>
                 {(job.minJdSalary || job.maxJdSalary) &&
-                    <p>
-                        Estimated Salary: {job.minJdSalary}{job.minJdSalary && job.maxJdSalary && " - "}{job.maxJdSalary}
+                    <p className='card-salary'>
+                        Estimated Salary: ₹{job.minJdSalary}{job.minJdSalary && job.maxJdSalary && " - "}{job.maxJdSalary} LPA
+                        <span aria-label="Offered salary range" class=""> ✅</span>
                     </p>
                 }
                 {job.jobDetailsFromCompany && (
-                    <div>
-                        <p className={!showFullDescription ? 'full-description' : ''}>
-                            {job.jobDetailsFromCompany}
-                        </p>
-                        {!showFullDescription && (
-                            <div className="view-more" onClick={toggleDescription}>
-                                View More
-                            </div>
-                        )}
-                    </div>
+                    <>
+                        <div className='job-card-about-company'>
+                            About Company:
+                        </div>
+                        <div className='job-card-about-us'>
+                            About us
+                        </div>
+                        <div>
+                            <p className={!showFullDescription ? 'full-description' : ''}>
+                                {job.jobDetailsFromCompany}
+                            </p>
+                            {!showFullDescription && (
+                                <div className="view-more" onClick={toggleDescription}>
+                                    View More
+                                </div>
+                            )}
+                        </div>
+                    </>
                 )}
                 {showFullDescription && (
                     <div className="view-less" onClick={toggleDescription}>
                         View Less
                     </div>
                 )}
-                {job.minExp &&
-                    <div>
-                        Minimum Experience
-                        
-                    </div>
-                }
+                <div className='experience-blog' style={{ height: "3rem" }}>
+                    {job.minExp &&
+                        <div>
+                            <h3>
+                                Minimum Experience
+                            </h3>
+                            <h2>
+                                {job.minExp}
+                            </h2>
+                        </div>
+                    }
+                </div>
             </div>
-            <button> Apply</button>
+            <button className='job-apply-btn'>⚡ Easy Apply</button>
         </div>
     );
 }
