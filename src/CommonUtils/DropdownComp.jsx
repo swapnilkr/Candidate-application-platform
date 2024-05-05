@@ -1,19 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
+import './dropdown.css';
 
-const DropdownComp = ({ label, options, onChange }) => {
+const CustomDropdown = ({ label, options, onSelect, isOpen, toggleDropdown, initialValue }) => {
+    const [selectedOption, setSelectedOption] = useState(initialValue || '');
+
+    const handleOptionClick = (option) => {
+        setSelectedOption(option);
+        onSelect(option);
+        toggleDropdown();
+    };
+
     return (
-        <div>
-            <label>{label}</label>
-            <select onChange={onChange}>
-                <option value="">Select {label}</option>
-                {options.map((option, index) => (
-                    <option key={index} value={option.value}>
-                        {option.label}
-                    </option>
-                ))}
-            </select>
+        <div className="custom-dropdown">
+            <div className="selected-option" onClick={toggleDropdown}>
+                {selectedOption || `Select ${label}`}
+            </div>
+            {isOpen && (
+                <div className="dropdown-options">
+                    {options.map((option, index) => (
+                        <div key={index} className="option" onClick={() => handleOptionClick(option)}>
+                            {option.label}
+                        </div>
+                    ))}
+                </div>
+            )}
         </div>
     );
 };
 
-export default DropdownComp;
+export default CustomDropdown;

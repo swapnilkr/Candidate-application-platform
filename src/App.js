@@ -9,7 +9,6 @@ function App() {
   return (
     <Provider store={store}>
       <div>
-        <h1>Candidate Application Platform</h1>
         <Filters />
         <JobList />
       </div>

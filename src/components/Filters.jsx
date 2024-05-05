@@ -1,9 +1,17 @@
-import React, { useEffect} from 'react';
-import DropdownComp from '../CommonUtils/DropdownComp';
+import React, { useState } from 'react';
+import CustomDropdown from '../CommonUtils/DropdownComp';
 import { useSelector, useDispatch } from 'react-redux';
-import { applyFilters } from '../redux/actions';
+import './filters.css'
 
 const Filters = () => {
+    const dispatch = useDispatch();
+    const filters = useSelector(state => state.filters);
+    const [openDropdown, setOpenDropdown] = useState('');
+
+    const toggleDropdown = (dropdownName) => {
+        setOpenDropdown(openDropdown === dropdownName ? '' : dropdownName);
+    };
+
     const roleOptions = [
         { label: 'Engineering: Frontend', value: 'frontend' },
         { label: 'Engineering: Backend', value: 'backend' },
@@ -36,21 +44,65 @@ const Filters = () => {
         { label: '20L', value: '20' },
     ];
 
-    const dispatch = useDispatch();
-    const filters = useSelector(state => state.filters);
+    const handleRoleChange = (value) => {
+        dispatch({ type: 'APPLY_FILTERS', payload: { role: value } });
+    };
 
-    useEffect(() => {
-        dispatch(applyFilters(filters));
-    }, [dispatch, filters]);
+    const handleEmployeeChange = (value) => {
+        dispatch({ type: 'APPLY_FILTERS', payload: { employees: value } });
+    };
+
+    const handleExperienceChange = (value) => {
+        dispatch({ type: 'APPLY_FILTERS', payload: { experience: value } });
+    };
+
+    const handleRemoteChange = (value) => {
+        dispatch({ type: 'APPLY_FILTERS', payload: { remote: value } });
+    };
+
+    const handleSalaryChange = (value) => {
+        dispatch({ type: 'APPLY_FILTERS', payload: { minSalary: value } });
+    };
 
     return (
-        <div>
-            <DropdownComp label="Role" options={roleOptions} onChange={value => dispatch({ type: 'APPLY_FILTERS', payload: { role: value } })} />
-            <DropdownComp label="Employees" options={employeeOptions} onChange={value => dispatch({ type: 'APPLY_FILTERS', payload: { employees: value } })} />
-            <DropdownComp label="Experience" options={experienceOptions} onChange={value => dispatch({ type: 'APPLY_FILTERS', payload: { experience: value } })} />
-            <DropdownComp label="Remote" options={remoteOptions} onChange={value => dispatch({ type: 'APPLY_FILTERS', payload: { remote: value } })} />
-            <DropdownComp label="Min Salary" options={salaryOptions} onChange={value => dispatch({ type: 'APPLY_FILTERS', payload: { minSalary: value } })} />
-            <div>
+        <div className="filters-container"> {/* Apply container class for styling */}
+            <CustomDropdown
+                label="Role"
+                options={roleOptions}
+                onSelect={handleRoleChange}
+                isOpen={openDropdown === 'Role'}
+                toggleDropdown={() => toggleDropdown('Role')}
+                initialValue={filters.role} />
+            <CustomDropdown
+                label="Employees"
+                options={employeeOptions}
+                onSelect={handleEmployeeChange}
+                isOpen={openDropdown === 'Employees'}
+                toggleDropdown={() => toggleDropdown('Employees')}
+                initialValue={filters.employees} />
+            <CustomDropdown
+                label="Experience"
+                options={experienceOptions}
+                onSelect={handleExperienceChange}
+                isOpen={openDropdown === 'Experience'}
+                toggleDropdown={() => toggleDropdown('Experience')}
+                initialValue={filters.experience} />
+            <CustomDropdown
+                label="Remote"
+                options={remoteOptions}
+                onSelect={handleRemoteChange}
+                isOpen={openDropdown === 'Remote'}
+                toggleDropdown={() => toggleDropdown('Remote')}
+                initialValue={filters.remote}
+            />
+            <CustomDropdown
+                label="Min Salary"
+                options={salaryOptions}
+                onSelect={handleSalaryChange}
+                isOpen={openDropdown === 'Min Salary'}
+                toggleDropdown={() => toggleDropdown('Min Salary')}
+                initialValue={filters.minSalary} />
+            <div className="company-name-container"> {/* Apply container class for styling */}
                 <label>Search Company Name</label>
                 <input type="text" onChange={e => dispatch({ type: 'APPLY_FILTERS', payload: { companyName: e.target.value } })} />
             </div>

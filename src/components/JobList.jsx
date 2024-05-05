@@ -54,7 +54,6 @@ const JobList = () => {
     }, [])
     return (
         <div>
-            <h2>Job Listings</h2>
             <div className='job-card-container'>
                 {jobs.map((job, index) => (
                     <JobCard job={job} index={index} />
