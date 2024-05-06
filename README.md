@@ -28,13 +28,13 @@ https://github.com/swapnilkr/Candidate-application-platform.git
 npm install
 ```
 
-<p>4. Run this command</p>
+<p>3. Run this command</p>
 
 ```
 npm start
 ```
 
-<p>5. Vist -&gt;</p>
+<p>4. Vist -&gt;</p>
 
 ```
 http://localhost:8000/
