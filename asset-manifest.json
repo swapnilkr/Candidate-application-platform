@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/candidate-app-platform/static/css/main.558ce393.css",
-    "main.js": "/candidate-app-platform/static/js/main.1ee16c62.js",
-    "static/js/453.bae8abae.chunk.js": "/candidate-app-platform/static/js/453.bae8abae.chunk.js",
-    "static/media/logo.svg": "/candidate-app-platform/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/candidate-app-platform/index.html",
-    "main.558ce393.css.map": "/candidate-app-platform/static/css/main.558ce393.css.map",
-    "main.1ee16c62.js.map": "/candidate-app-platform/static/js/main.1ee16c62.js.map",
-    "453.bae8abae.chunk.js.map": "/candidate-app-platform/static/js/453.bae8abae.chunk.js.map"
+    "main.css": "/Candidate-application-platform/static/css/main.558ce393.css",
+    "main.js": "/Candidate-application-platform/static/js/main.b82c5d80.js",
+    "static/js/453.bae8abae.chunk.js": "/Candidate-application-platform/static/js/453.bae8abae.chunk.js",
+    "static/media/logo.svg": "/Candidate-application-platform/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/Candidate-application-platform/index.html",
+    "main.558ce393.css.map": "/Candidate-application-platform/static/css/main.558ce393.css.map",
+    "main.b82c5d80.js.map": "/Candidate-application-platform/static/js/main.b82c5d80.js.map",
+    "453.bae8abae.chunk.js.map": "/Candidate-application-platform/static/js/453.bae8abae.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.558ce393.css",
-    "static/js/main.1ee16c62.js"
+    "static/js/main.b82c5d80.js"
   ]
 }
