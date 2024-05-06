@@ -2,17 +2,25 @@ import logo from './logo.svg';
 import './App.css';
 import { Provider } from 'react-redux';
 import store from './redux/store';
-import JobList from './components/JobList';
-import Filters from './components/Filters';
+import {
+	BrowserRouter as Router,
+	Route,
+	Routes,
+	Navigate
+} from "react-router-dom";
+import HomeTSA from './components/HomeTSA';
 
 function App() {
   return (
     <Provider store={store}>
-      <div>
-        <Filters />
-        <JobList />
-      </div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomeTSA />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </Router>
     </Provider>
+
   );
 }
 

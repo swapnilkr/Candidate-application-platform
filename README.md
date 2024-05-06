@@ -4,7 +4,7 @@
 
 <h2>🚀 Demo</h2>
 
-<a href="">Load..</a>
+<a href="https://swapnilkr.github.io/Candidate-application-platform/">Candidate Application Platform</a>
 
 <h2>🧐 Features</h2>
 
