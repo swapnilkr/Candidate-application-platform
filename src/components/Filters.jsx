@@ -17,6 +17,7 @@ const Filters = () => {
         setOpenDropdown(openDropdown === dropdownName ? '' : dropdownName);
     };
 
+    // Dispatching filter on applying
     const handleRoleChange = (select) => {
         dispatch({ type: 'APPLY_FILTERS', payload: { role: select?.value } });
     };

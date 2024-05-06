@@ -13,6 +13,7 @@ const JobList = () => {
     const [offset, setOffset] = useState(0);
     const [loading, setLoading] = useState(false);
 
+    // load more jobs on infinte scroll by maintainig pagination
     const loadMoreJobs = async () => {
         try {
             setLoading(true);

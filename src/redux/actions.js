@@ -14,11 +14,3 @@ export const applyFilters = (filters) => ({
     type: types.APPLY_FILTERS,
     payload: filters,
 });
-
-export const clearFilters = () => ({
-    type: types.CLEAR_FILTERS,
-});
-
-export const loadMoreJobs = () => ({
-    type: types.LOAD_MORE_JOBS,
-});

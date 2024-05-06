@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import './dropdown.css';
 import CancelIcon from '@mui/icons-material/Cancel';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
+// Common custom dropdown
 const CustomDropdown = ({ label, options, onSelect, isOpen, toggleDropdown, initialValue }) => {
     const [selectedOption, setSelectedOption] = useState(initialValue || '');
 
@@ -16,6 +18,7 @@ const CustomDropdown = ({ label, options, onSelect, isOpen, toggleDropdown, init
             <div className="selected-option" onClick={toggleDropdown} style={{width : `${label === 'Roles' || label === 'Remote'? '5rem' : ''}`}}>
                 {selectedOption?.label || `${label}`}
                 {selectedOption ? <span onClick={() => handleOptionClick('')}><CancelIcon /></span> : ''}
+                <div><ExpandMoreIcon /></div>
             </div>
             {isOpen && (
                 <div className="dropdown-options">

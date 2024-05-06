@@ -27,6 +27,7 @@ const JobCard = ({ job, index }) => {
                             style={{ display: imageLoaded ? 'block' : 'none' }}
                         />
                     }
+                    {/* Shimmer if image takes time to load */}
                     {!imageLoaded && <Shimmer />}
                 </div>
                 <div className='job-info-container'>

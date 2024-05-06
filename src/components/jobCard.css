@@ -130,6 +130,13 @@
     }
 }
 
+@media (max-width: 600px) {
+    .card-salary {
+        height: 2.86rem !important;
+    }
+}
+
+
 @media (max-width: 480px) {
     .job-card {
         width: calc(100% - 20px) !important;
