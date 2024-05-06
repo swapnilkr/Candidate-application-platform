@@ -38,7 +38,6 @@ const Filters = () => {
         dispatch({ type: 'APPLY_FILTERS', payload: { minSalary: select?.value } });
     };
 
-    console.log(filters)
     return (
         <div className="filters-container">
             <CustomDropdown
