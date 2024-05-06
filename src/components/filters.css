@@ -9,4 +9,9 @@
     padding: 11px 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    width: 12rem;
+}
+
+.company-name-container input::-webkit-input-placeholder {
+    font-size: 1.2em;
 }

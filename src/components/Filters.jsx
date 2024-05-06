@@ -41,14 +41,14 @@ const Filters = () => {
     return (
         <div className="filters-container">
             <CustomDropdown
-                label="Role"
+                label="Roles"
                 options={roleOptions}
                 onSelect={handleRoleChange}
                 isOpen={openDropdown === 'Role'}
                 toggleDropdown={() => toggleDropdown('Role')}
                 initialValue={filters.role} />
             <CustomDropdown
-                label="Employees"
+                label="Number of Employees"
                 options={employeeOptions}
                 onSelect={handleEmployeeChange}
                 isOpen={openDropdown === 'Employees'}
@@ -70,7 +70,7 @@ const Filters = () => {
                 initialValue={filters.remote}
             />
             <CustomDropdown
-                label="Min Salary"
+                label="Minimum Base Pay Salary"
                 options={salaryOptions}
                 onSelect={handleSalaryChange}
                 isOpen={openDropdown === 'Min Salary'}

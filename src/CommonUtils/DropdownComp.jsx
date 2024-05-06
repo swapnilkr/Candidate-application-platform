@@ -13,8 +13,8 @@ const CustomDropdown = ({ label, options, onSelect, isOpen, toggleDropdown, init
 
     return (
         <div className="custom-dropdown">
-            <div className="selected-option" onClick={toggleDropdown}>
-                {selectedOption?.label || `Select ${label}`}
+            <div className="selected-option" onClick={toggleDropdown} style={{width : `${label === 'Roles' || label === 'Remote'? '5rem' : ''}`}}>
+                {selectedOption?.label || `${label}`}
                 {selectedOption ? <span onClick={() => handleOptionClick('')}><CancelIcon /></span> : ''}
             </div>
             {isOpen && (

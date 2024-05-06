@@ -1,60 +1,47 @@
 import * as types from './types';
 
 const initialState = {
-    jobs: [], // Storing all fetched jobs
-    filteredJobs: [], // Storing jobs after applying filters
+    jobs: [],
+    filteredJobs: [],
     loading: false,
     error: null,
-    filters: {}, // Storing applied filters
+    filters: {},
 };
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case types.FETCH_JOBS_SUCCESS:
-            console.log(action)
-            return {
-                ...state,
-                jobs: [...state.jobs, ...action?.payload],
-                loading: false,
-                error: null,
-            };
+            const newJobs = action.payload || [];
+            const updatedJobs = [...state.jobs, ...newJobs];
+            const filteredJobs = applyFilters(updatedJobs, state.filters);
+            return { ...state, jobs: updatedJobs, filteredJobs, loading: false, error: null };
+
         case types.FETCH_JOBS_FAILURE:
-            return {
-                ...state,
-                loading: false,
-                error: action.payload,
-            };
+            return { ...state, loading: false, error: action.payload };
+
         case types.APPLY_FILTERS:
-
-            let filteredJobs = state.jobs.filter(job => {
-                return (
-                    (!action.payload.role || job.jobRole === action.payload.role) &&
-                    (!action.payload.employees || job.employees === action.payload.employees) &&
-                    (!action.payload.experience || (job.minExp <= action.payload.experience)) &&
-                    (!action.payload.minSalary || job.minJdSalary >= action.payload.minSalary) &&
-                    (!action.payload.companyName || job.companyName.toLowerCase().includes(action.payload.companyName.toLowerCase()))
-                );
-            });
-
-            if (action.payload.remote) {
-                if (action.payload.remote === 'hybrid') {
-                    filteredJobs = filteredJobs.filter(job => job.location.toLowerCase().includes('hybrid'));
-                } else if (action.payload.remote === 'in_office') {
-                    filteredJobs = filteredJobs.filter(job => !job.location.toLowerCase().includes('remote') && !job.location.toLowerCase().includes('hybrid'));
-                } else if (action.payload.remote === 'remote') {
-                    filteredJobs = filteredJobs.filter(job => job.location.toLowerCase().includes('remote') && !job.location.toLowerCase().includes('hybrid'));
-                }
-            }
-
-            return {
-                ...state,
-                filteredJobs,
-                filters: action.payload,
-            };
+            const newFilteredJobs = applyFilters(state.jobs, action.payload);
+            return { ...state, filteredJobs: newFilteredJobs, filters: action.payload };
 
         default:
             return state;
     }
+};
+
+const applyFilters = (jobs, filters) => {
+    return jobs.filter(job => {
+        return (
+            (!filters.role || job.jobRole === filters.role) &&
+            (!filters.employees || job.employees === filters.employees) &&
+            (!filters.experience || job.minExp <= filters.experience) &&
+            (!filters.minSalary || job.minJdSalary >= filters.minSalary) &&
+            (!filters.companyName || job.companyName.toLowerCase().includes(filters.companyName.toLowerCase())) &&
+            (!filters.remote ||
+                (filters.remote === 'hybrid' && job.location.toLowerCase().includes('hybrid')) ||
+                (filters.remote === 'in_office' && !job.location.toLowerCase().includes('remote') && !job.location.toLowerCase().includes('hybrid')) ||
+                (filters.remote === 'remote' && job.location.toLowerCase().includes('remote') && !job.location.toLowerCase().includes('hybrid')))
+        );
+    });
 };
 
 export default reducer;
