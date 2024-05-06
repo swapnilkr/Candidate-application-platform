@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './dropdown.css';
+import CancelIcon from '@mui/icons-material/Cancel';
 
 const CustomDropdown = ({ label, options, onSelect, isOpen, toggleDropdown, initialValue }) => {
     const [selectedOption, setSelectedOption] = useState(initialValue || '');
@@ -13,7 +14,8 @@ const CustomDropdown = ({ label, options, onSelect, isOpen, toggleDropdown, init
     return (
         <div className="custom-dropdown">
             <div className="selected-option" onClick={toggleDropdown}>
-                {selectedOption || `Select ${label}`}
+                {selectedOption?.label || `Select ${label}`}
+                {selectedOption ? <span onClick={() => handleOptionClick('')}><CancelIcon /></span> : ''}
             </div>
             {isOpen && (
                 <div className="dropdown-options">

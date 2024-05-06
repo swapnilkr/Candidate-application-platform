@@ -17,28 +17,29 @@ const Filters = () => {
         setOpenDropdown(openDropdown === dropdownName ? '' : dropdownName);
     };
 
-    const handleRoleChange = (value) => {
-        dispatch({ type: 'APPLY_FILTERS', payload: { role: value } });
+    const handleRoleChange = (select) => {
+        dispatch({ type: 'APPLY_FILTERS', payload: { role: select?.value } });
     };
 
-    const handleEmployeeChange = (value) => {
-        dispatch({ type: 'APPLY_FILTERS', payload: { employees: value } });
+    const handleEmployeeChange = (select) => {
+        dispatch({ type: 'APPLY_FILTERS', payload: { employees: select?.value } });
     };
 
-    const handleExperienceChange = (value) => {
-        dispatch({ type: 'APPLY_FILTERS', payload: { experience: value } });
+    const handleExperienceChange = (select) => {
+        dispatch({ type: 'APPLY_FILTERS', payload: { experience: select?.value } });
     };
 
-    const handleRemoteChange = (value) => {
-        dispatch({ type: 'APPLY_FILTERS', payload: { remote: value } });
+    const handleRemoteChange = (select) => {
+        dispatch({ type: 'APPLY_FILTERS', payload: { remote: select?.value } });
     };
 
-    const handleSalaryChange = (value) => {
-        dispatch({ type: 'APPLY_FILTERS', payload: { minSalary: value } });
+    const handleSalaryChange = (select) => {
+        dispatch({ type: 'APPLY_FILTERS', payload: { minSalary: select?.value } });
     };
 
+    console.log(filters)
     return (
-        <div className="filters-container"> {/* Apply container class for styling */}
+        <div className="filters-container">
             <CustomDropdown
                 label="Role"
                 options={roleOptions}

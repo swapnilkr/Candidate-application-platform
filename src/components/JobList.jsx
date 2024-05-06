@@ -8,6 +8,7 @@ const JobList = () => {
     const dispatch = useDispatch();
     const jobs = useSelector(state => state.jobs);
     const filteredJobs = useSelector(state => state.filteredJobs);
+    const filters = useSelector(state => state.filters);
 
     const [offset, setOffset] = useState(0);
     const [loading, setLoading] = useState(false);
@@ -57,7 +58,7 @@ const JobList = () => {
     return (
         <div>
             <div className='job-card-container'>
-                {filteredJobs.length > 0 ? (
+                {Object.keys(filters)?.length > 0 ? (
                     filteredJobs.map((job, index) => (
                         <JobCard key={job.id} job={job} index={index} />
                     ))
