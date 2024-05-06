@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/candidate-app-platform/static/css/main.07adc468.css",
-    "main.js": "/candidate-app-platform/static/js/main.e8206101.js",
+    "main.css": "/candidate-app-platform/static/css/main.558ce393.css",
+    "main.js": "/candidate-app-platform/static/js/main.1ee16c62.js",
     "static/js/453.bae8abae.chunk.js": "/candidate-app-platform/static/js/453.bae8abae.chunk.js",
     "static/media/logo.svg": "/candidate-app-platform/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/candidate-app-platform/index.html",
-    "main.07adc468.css.map": "/candidate-app-platform/static/css/main.07adc468.css.map",
-    "main.e8206101.js.map": "/candidate-app-platform/static/js/main.e8206101.js.map",
+    "main.558ce393.css.map": "/candidate-app-platform/static/css/main.558ce393.css.map",
+    "main.1ee16c62.js.map": "/candidate-app-platform/static/js/main.1ee16c62.js.map",
     "453.bae8abae.chunk.js.map": "/candidate-app-platform/static/js/453.bae8abae.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.07adc468.css",
-    "static/js/main.e8206101.js"
+    "static/css/main.558ce393.css",
+    "static/js/main.1ee16c62.js"
   ]
 }
